@@ -1,0 +1,1 @@
+export type Inversion = 'root' | 'first' | 'second';

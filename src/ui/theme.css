@@ -1,0 +1,430 @@
+:root {
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* ---- Genel layout ---- */
+
+.app-root {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #252525 0, #050505 55%);
+  color: #f5f5f5;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+}
+
+.app-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid #202020;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-header h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.app-subtitle {
+  margin: 4px 0 0;
+  font-size: 12px;
+  opacity: 0.65;
+}
+
+.main-layout {
+  display: flex;
+  gap: 24px;
+  padding: 16px 24px 32px;
+  align-items: flex-start;
+}
+
+.main-panel {
+  flex: 1.4;
+  min-width: 0;
+}
+
+.side-panel {
+  flex: 1;
+  min-width: 280px;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ---- Circle kartı ---- */
+
+.circle-card {
+  background: #101010;
+  border-radius: 16px;
+  border: 1px solid #262626;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---- Seçili akor satırı ---- */
+
+.selected-chord-row {
+  margin-top: 12px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.selected-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+.selected-value {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* ---- Piano ---- */
+
+.piano {
+  display: flex;
+  margin-top: 16px;
+  background: #000;
+  padding: 4px 4px 8px;
+  border-radius: 12px;
+  border: 1px solid #202020;
+  overflow: hidden;
+}
+
+.piano-key {
+  width: 30px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 9px;
+  padding-bottom: 5px;
+  border: 1px solid #000;
+  position: relative;
+}
+
+.white {
+  background: #fdfdfd;
+  color: #000;
+  z-index: 1;
+}
+
+.black {
+  background: #333;
+  color: white;
+  height: 100px;
+  margin: 0 -10px;
+  z-index: 2;
+}
+
+.active {
+  background: #ffd54a !important;
+  color: #000 !important;
+}
+
+/* ---- Guitar ---- */
+
+.guitar-container {
+  margin-top: 16px;
+  background: #050505;
+  border-radius: 12px;
+  border: 1px solid #202020;
+  padding: 8px 8px 4px;
+}
+
+.guitar-label-row {
+  margin-bottom: 4px;
+}
+
+.guitar-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+.guitar-fretboard {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.guitar-string-row {
+  display: flex;
+}
+
+.guitar-fret {
+  flex: 1;
+  height: 22px;
+  border: 1px solid #222;
+  background: #101010;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  color: #666;
+}
+
+.guitar-fret.nut {
+  background: #202020;
+  font-weight: 600;
+  color: #ddd;
+}
+
+.guitar-fret.active {
+  background: #ffd54a;
+  color: #000;
+}
+
+.guitar-fret-numbers {
+  display: flex;
+  margin-top: 2px;
+}
+
+.guitar-fret-number {
+  flex: 1;
+  text-align: center;
+  font-size: 8px;
+  opacity: 0.6;
+}
+
+/* ---- Controls & Progression kartları ---- */
+
+.controls-panel,
+.progression-panel {
+  padding: 12px;
+  border-radius: 12px;
+  background: #101010;
+  border: 1px solid #262626;
+}
+
+.controls-panel h3,
+.progression-panel h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+/* ---- Progression ---- */
+
+.progression-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.progression-controls button {
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 999px;
+  border: 1px solid #444;
+  background: #181818;
+  color: #eee;
+  cursor: pointer;
+}
+
+.progression-controls button:hover:not(:disabled) {
+  background: #222;
+}
+
+.progression-controls button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.progression-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.progression-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  border-bottom: 1px solid #181818;
+}
+
+.progression-index {
+  width: 20px;
+  text-align: right;
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.progression-chord {
+  font-weight: 600;
+}
+
+.progression-remove {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.progression-empty {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* ---- Öneri sekmeleri ---- */
+
+.suggestions-container {
+  margin-top: 4px;
+}
+
+.suggestions-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.suggestion-tab {
+  flex: 1;
+  padding: 6px 10px;
+  font-size: 11px;
+  border-radius: 999px;
+  border: 1px solid #333;
+  background: #151515;
+  color: #ccc;
+  cursor: pointer;
+  text-align: center;
+}
+
+.suggestion-tab.active {
+  background: #f5c84a;
+  border-color: #f5c84a;
+  color: #000;
+}
+/* ---- Presets ---- */
+
+.preset-panel {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 12px;
+  background: #050505;
+  border: 1px solid #262626;
+}
+
+.preset-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.preset-header h3 {
+  font-size: 13px;
+  margin: 0;
+}
+
+.preset-count {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.preset-save-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.preset-save-row input {
+  flex: 1;
+  font-size: 12px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #0d0d0d;
+  color: #eee;
+}
+
+.preset-save-row button {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+.preset-empty {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.preset-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.preset-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: #090909;
+  border: 1px solid #222;
+}
+
+.preset-main {
+  flex: 1;
+}
+
+.preset-name {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.preset-meta {
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.preset-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.preset-actions button {
+  font-size: 11px;
+  padding: 2px 6px;
+}
+
+/* Borrowed & Secondary paneller mevcut progression-panel stilini kullanıyor */
+
+/* ---- Responsive ---- */
+
+@media (max-width: 900px) {
+  .main-layout {
+    flex-direction: column;
+  }
+
+  .side-panel {
+    max-width: none;
+    width: 100%;
+  }
+}
